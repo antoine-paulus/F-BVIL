@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MobiflightConnector>
+  <outputs>
+    <config guid="318b4a21-2b48-4bdf-8c74-d89baa3887c3">
+      <active>false</active>
+      <description>Compas flottant</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="FSUIPC" offset="0x02CC" offsetType="Float" size="8" mask="0xFFFFFFFFFFFFFFFF" bcdMode="False" />
+        <comparison active="False" value="" operand="" ifValue="" elseValue="" />
+        <display type="Stepper" serial="ArdMEGA TEST/ SN-8ff-8f6" trigger="normal" stepperAddress="Compas pas a pas" stepperInputRev="360" stepperOutputRev="2048" stepperTestValue="180" stepperCompassMode="True" />
+        <interpolation active="True">
+          <value x="0" y="360" />
+          <value x="360" y="0" />
+        </interpolation>
+        <preconditions />
+        <transformation active="False" expression="$" substrStart="0" substrEnd="7" />
+        <configrefs>
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="#" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="cd4edb7b-394b-4585-b5c1-30ee62ca05fd">
+      <active>false</active>
+      <description>Retro eclairage compas</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="FSUIPC" offset="0x0D0C" offsetType="Integer" size="2" mask="0x0200" bcdMode="False" />
+        <comparison active="False" value="" operand="" ifValue="" elseValue="" />
+        <display type="Pin" serial="ArdMEGA TEST/ SN-8ff-8f6" trigger="normal" pin="Compas LED" pinBrightness="255" />
+        <preconditions>
+          <precondition type="config" active="true" ref="ada22204-a380-44ce-8221-a4bf8d044b89" operand="&gt;=" value="1" logic="and" />
+        </preconditions>
+        <transformation active="False" expression="$" substrStart="0" substrEnd="7" />
+        <configrefs>
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="4e4720d3-771b-45c9-a90e-1bb2aac7ab3b">
+      <active>false</active>
+      <description>CHT Cluster Gauche</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="FSUIPC" offset="0x08E8" offsetType="Float" size="8" mask="0xFFFFFFFFFFFFFFFF" bcdMode="False" />
+        <comparison active="False" value="" operand="=" ifValue="1" elseValue="0" />
+        <display type="Servo" serial="ArdMEGA TEST/ SN-8ff-8f6" trigger="normal" servoAddress="Servo 1 CLU G" servoMin="12" servoMax="255" servoMaxRotationPercent="21" />
+        <interpolation active="True">
+          <value x="0" y="255" />
+          <value x="200" y="250" />
+          <value x="500" y="1" />
+          <value x="1000" y="0" />
+        </interpolation>
+        <preconditions />
+        <transformation active="True" expression="$" substrStart="0" substrEnd="7" />
+        <configrefs>
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="§" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+          <configref active="False" ref="9ab46ea7-22c9-41d3-8139-0510f17b1aa9" placeholder="@" />
+          <configref active="False" ref="eeed44ac-f921-4252-ad05-e95633f1e7d6" placeholder="?" />
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="§" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="eeed44ac-f921-4252-ad05-e95633f1e7d6">
+      <active>false</active>
+      <description>Fuel Cluster Gauche</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="FSUIPC" offset="0x0B7C" offsetType="Integer" size="4" mask="0xFFFFFFFF" bcdMode="False" />
+        <comparison active="False" value="" operand="" ifValue="" elseValue="" />
+        <display type="Servo" serial="ArdMEGA TEST/ SN-8ff-8f6" trigger="normal" servoAddress="Servo 2 CLU G" servoMin="26" servoMax="255" servoMaxRotationPercent="23" />
+        <interpolation active="True">
+          <value x="0" y="255" />
+          <value x="50" y="100" />
+          <value x="100" y="0" />
+        </interpolation>
+        <preconditions />
+        <transformation active="True" expression="$*100/(128*65536)" substrStart="0" substrEnd="7" />
+        <configrefs>
+          <configref active="False" ref="4e4720d3-771b-45c9-a90e-1bb2aac7ab3b" placeholder="?" />
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="§" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+          <configref active="False" ref="4e4720d3-771b-45c9-a90e-1bb2aac7ab3b" placeholder="?" />
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="§" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="9ab46ea7-22c9-41d3-8139-0510f17b1aa9">
+      <active>false</active>
+      <description>Amperemetre Cluster Gauche</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="FSUIPC" offset="0x2878" offsetType="Float" size="8" mask="0xFFFFFFFFFFFFFFFF" bcdMode="False" />
+        <comparison active="False" value="" operand="" ifValue="" elseValue="" />
+        <display type="Servo" serial="ArdMEGA TEST/ SN-8ff-8f6" trigger="normal" servoAddress="Servo 3 CLU G" servoMin="27" servoMax="255" servoMaxRotationPercent="23" />
+        <interpolation active="True">
+          <value x="-40" y="255" />
+          <value x="0" y="127" />
+          <value x="40" y="0" />
+        </interpolation>
+        <preconditions />
+        <transformation active="True" expression="$*-1.0" substrStart="0" substrEnd="7" />
+        <configrefs>
+          <configref active="False" ref="eeed44ac-f921-4252-ad05-e95633f1e7d6" placeholder="@" />
+          <configref active="False" ref="4e4720d3-771b-45c9-a90e-1bb2aac7ab3b" placeholder="?" />
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="§" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="§" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="eed622f2-4a91-4bc0-9b50-d1378436e30b">
+      <active>false</active>
+      <description>Pression Huile Cluster Gauche</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="FSUIPC" offset="0x08BA" offsetType="Integer" size="2" mask="0xFFFF" bcdMode="False" />
+        <comparison active="True" value="100" operand="&gt;=" ifValue="0" elseValue="" />
+        <display type="Servo" serial="ArdMEGA TEST/ SN-8ff-8f6" trigger="normal" servoAddress="Servo 4 CLU G" servoMin="15" servoMax="255" servoMaxRotationPercent="23" />
+        <interpolation active="True">
+          <value x="0" y="255" />
+          <value x="100" y="0" />
+        </interpolation>
+        <preconditions>
+          <precondition type="config" active="false" ref="ada22204-a380-44ce-8221-a4bf8d044b89" operand="&gt;=" value="1" logic="and" />
+        </preconditions>
+        <transformation active="True" expression="$*55/16384" substrStart="0" substrEnd="7" />
+        <configrefs>
+          <configref active="False" ref="9ab46ea7-22c9-41d3-8139-0510f17b1aa9" placeholder="A" />
+          <configref active="False" ref="eeed44ac-f921-4252-ad05-e95633f1e7d6" placeholder="@" />
+          <configref active="False" ref="4e4720d3-771b-45c9-a90e-1bb2aac7ab3b" placeholder="?" />
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="§" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="ada22204-a380-44ce-8221-a4bf8d044b89">
+      <active>false</active>
+      <description>Temoin batterie</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="FSUIPC" offset="0x281C" offsetType="Integer" size="4" mask="0xFFFFFFFF" bcdMode="False" />
+        <comparison active="False" value="" operand="" ifValue="" elseValue="" />
+        <display type="Pin" serial="ArdMEGA TEST/ SN-8ff-8f6" trigger="normal" pin="Temoin bat" pinBrightness="255" />
+        <preconditions />
+        <transformation active="True" expression="$" substrStart="0" substrEnd="7" />
+        <configrefs>
+          <configref active="False" ref="eed622f2-4a91-4bc0-9b50-d1378436e30b" placeholder="B" />
+          <configref active="False" ref="9ab46ea7-22c9-41d3-8139-0510f17b1aa9" placeholder="A" />
+          <configref active="False" ref="eeed44ac-f921-4252-ad05-e95633f1e7d6" placeholder="@" />
+          <configref active="False" ref="4e4720d3-771b-45c9-a90e-1bb2aac7ab3b" placeholder="?" />
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="§" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="f5de2a58-4a42-4c21-91c6-9ba970a07762">
+      <active>false</active>
+      <description>Tachymètre RPM</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="FSUIPC" offset="0x2400" offsetType="Float" size="8" mask="0xFFFFFFFFFFFFFFFF" bcdMode="False" />
+        <comparison active="False" value="" operand="" ifValue="" elseValue="" />
+        <display type="Stepper" serial="ArdMEGA TEST/ SN-8ff-8f6" trigger="normal" stepperAddress="RPM" stepperInputRev="3950" stepperOutputRev="2048" stepperTestValue="2500" stepperCompassMode="False" />
+        <preconditions />
+        <transformation active="True" expression="$" substrStart="0" substrEnd="7" />
+        <configrefs>
+          <configref active="False" ref="eed622f2-4a91-4bc0-9b50-d1378436e30b" placeholder="B" />
+          <configref active="False" ref="9ab46ea7-22c9-41d3-8139-0510f17b1aa9" placeholder="A" />
+          <configref active="False" ref="eeed44ac-f921-4252-ad05-e95633f1e7d6" placeholder="@" />
+          <configref active="False" ref="4e4720d3-771b-45c9-a90e-1bb2aac7ab3b" placeholder="?" />
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="!" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="674929e5-99bd-4602-ab6e-1cd57035717c">
+      <active>false</active>
+      <description>Indicateur Manifold Pressure</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="FSUIPC" offset="0x08C0" offsetType="Integer" size="2" mask="0xFFFF" bcdMode="False" />
+        <comparison active="False" value="" operand="" ifValue="" elseValue="" />
+        <display type="Servo" serial="ArdMEGA TEST/ SN-8ff-8f6" trigger="normal" servoAddress="Servo MP" servoMin="0" servoMax="255" servoMaxRotationPercent="100" />
+        <interpolation active="True">
+          <value x="0" y="0" />
+          <value x="10" y="1" />
+          <value x="35" y="253" />
+          <value x="36" y="255" />
+        </interpolation>
+        <preconditions />
+        <transformation active="True" expression="$*1024" substrStart="0" substrEnd="7" />
+        <configrefs>
+          <configref active="False" ref="eed622f2-4a91-4bc0-9b50-d1378436e30b" placeholder="B" />
+          <configref active="False" ref="9ab46ea7-22c9-41d3-8139-0510f17b1aa9" placeholder="A" />
+          <configref active="False" ref="eeed44ac-f921-4252-ad05-e95633f1e7d6" placeholder="@" />
+          <configref active="False" ref="4e4720d3-771b-45c9-a90e-1bb2aac7ab3b" placeholder="?" />
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="!" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="8b1d5b4d-5278-4248-82e9-6d35ad8728eb">
+      <active>false</active>
+      <description>Indicateur Fuel Flow</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="FSUIPC" offset="0x0918" offsetType="Float" size="8" mask="0xFFFFFFFFFFFFFFFF" bcdMode="False" />
+        <comparison active="False" value="" operand="" ifValue="" elseValue="" />
+        <display type="Servo" serial="ArdMEGA TEST/ SN-8ff-8f6" trigger="normal" servoAddress="Servo Fuel Flow" servoMin="0" servoMax="255" servoMaxRotationPercent="100" />
+        <interpolation active="True">
+          <value x="0" y="0" />
+          <value x="2" y="13" />
+          <value x="6" y="46" />
+          <value x="8" y="74" />
+          <value x="10" y="102" />
+          <value x="12" y="138" />
+          <value x="14" y="179" />
+          <value x="16" y="211" />
+          <value x="18" y="242" />
+          <value x="19" y="255" />
+        </interpolation>
+        <preconditions />
+        <transformation active="True" expression="$*6.25" substrStart="0" substrEnd="7" />
+        <configrefs>
+          <configref active="False" ref="eed622f2-4a91-4bc0-9b50-d1378436e30b" placeholder="B" />
+          <configref active="False" ref="9ab46ea7-22c9-41d3-8139-0510f17b1aa9" placeholder="A" />
+          <configref active="False" ref="eeed44ac-f921-4252-ad05-e95633f1e7d6" placeholder="@" />
+          <configref active="False" ref="4e4720d3-771b-45c9-a90e-1bb2aac7ab3b" placeholder="?" />
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="!" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="c5e710a6-64a1-4b53-9649-cec85cd42fb6">
+      <active>true</active>
+      <description>Display COM2 SBY</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(A:GPS GROUND TRUE HEADING,Radians)" />
+        <comparison active="False" value="" operand="" ifValue="" elseValue="" />
+        <display type="Display Module" serial="ArdMEGA TEST/ SN-8ff-8f6" trigger="normal" ledAddress="COM2 SBY" ledConnector="1" ledModuleSize="8" ledPadding="False" ledPaddingChar=" " ledDigits="2,3,4,5,6,7" ledDecimalPoints="5" />
+        <preconditions />
+        <transformation active="True" expression="$" substrStart="0" substrEnd="7" />
+        <configrefs>
+          <configref active="False" ref="eed622f2-4a91-4bc0-9b50-d1378436e30b" placeholder="B" />
+          <configref active="False" ref="9ab46ea7-22c9-41d3-8139-0510f17b1aa9" placeholder="A" />
+          <configref active="False" ref="eeed44ac-f921-4252-ad05-e95633f1e7d6" placeholder="@" />
+          <configref active="False" ref="4e4720d3-771b-45c9-a90e-1bb2aac7ab3b" placeholder="?" />
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="!" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="8e643378-4bec-4e91-a4a4-e640920d0468">
+      <active>true</active>
+      <description>Display COM2 ACT</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="A:COM ACTIVE FREQUENCY:2, Number" />
+        <comparison active="False" value="" operand="" ifValue="" elseValue="" />
+        <display type="Display Module" serial="ArdMEGA TEST/ SN-8ff-8f6" trigger="normal" ledAddress="COM2 ACT" ledConnector="1" ledModuleSize="8" ledPadding="False" ledPaddingChar="0" ledDigits="0,1,2,3,4,5" ledDecimalPoints="3" />
+        <preconditions />
+        <transformation active="True" expression="$" substrStart="0" substrEnd="7" />
+        <configrefs>
+          <configref active="False" ref="eed622f2-4a91-4bc0-9b50-d1378436e30b" placeholder="B" />
+          <configref active="False" ref="9ab46ea7-22c9-41d3-8139-0510f17b1aa9" placeholder="A" />
+          <configref active="False" ref="eeed44ac-f921-4252-ad05-e95633f1e7d6" placeholder="@" />
+          <configref active="False" ref="4e4720d3-771b-45c9-a90e-1bb2aac7ab3b" placeholder="?" />
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="!" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+        </configrefs>
+      </settings>
+    </config>
+  </outputs>
+  <inputs>
+    <config guid="393481fe-a4ee-4e6a-967f-8efc5bef6901">
+      <active>true</active>
+      <description>COM 2 decimal</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" serial="ArdMEGA TEST/ SN-8ff-8f6" name="Encodeur 1 COM 2" type="Encoder" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <encoder>
+          <onLeft type="MSFS2020EventIdInputAction" eventId="COM2_RADIO_FRACT_DEC" />
+          <onLeftFast />
+          <onRight type="MSFS2020EventIdInputAction" eventId="COM2_RADIO_FRACT_INC" />
+          <onRightFast />
+        </encoder>
+        <preconditions />
+        <configrefs>
+          <configref active="False" ref="eed622f2-4a91-4bc0-9b50-d1378436e30b" placeholder="B" />
+          <configref active="False" ref="9ab46ea7-22c9-41d3-8139-0510f17b1aa9" placeholder="A" />
+          <configref active="False" ref="eeed44ac-f921-4252-ad05-e95633f1e7d6" placeholder="@" />
+          <configref active="False" ref="4e4720d3-771b-45c9-a90e-1bb2aac7ab3b" placeholder="?" />
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="!" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="a740ee3e-e7d9-4ec2-9588-a26ed508fbd6">
+      <active>true</active>
+      <description>COM 2 Entiers</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" serial="ArdMEGA TEST/ SN-8ff-8f6" name="Encodeur 2 COM 2" type="Encoder" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <encoder>
+          <onLeft type="MSFS2020EventIdInputAction" eventId="COM2_RADIO_WHOLE_DEC" />
+          <onLeftFast />
+          <onRight type="MSFS2020EventIdInputAction" eventId="COM2_RADIO_WHOLE_INC" />
+          <onRightFast />
+        </encoder>
+        <preconditions />
+        <configrefs>
+          <configref active="False" ref="eed622f2-4a91-4bc0-9b50-d1378436e30b" placeholder="B" />
+          <configref active="False" ref="9ab46ea7-22c9-41d3-8139-0510f17b1aa9" placeholder="A" />
+          <configref active="False" ref="eeed44ac-f921-4252-ad05-e95633f1e7d6" placeholder="@" />
+          <configref active="False" ref="4e4720d3-771b-45c9-a90e-1bb2aac7ab3b" placeholder="?" />
+          <configref active="False" ref="cd4edb7b-394b-4585-b5c1-30ee62ca05fd" placeholder="!" />
+          <configref active="False" ref="318b4a21-2b48-4bdf-8c74-d89baa3887c3" placeholder="#" />
+        </configrefs>
+      </settings>
+    </config>
+  </inputs>
+</MobiflightConnector>
