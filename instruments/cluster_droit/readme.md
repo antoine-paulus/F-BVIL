@@ -1,4 +1,4 @@
-# Cluster Gauche 
+# Cluster Droit
 Réservoir droit, température d'huile.
 ## Disposition & Montage
 * Le fichier stl est un standalone. 
