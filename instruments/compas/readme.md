@@ -2,7 +2,7 @@
 Façade pour le compas magnétique déjà présent dans l'avion récupéré.
 ## Disposition & Montage
 * Le fichier stl est un standalone. 
-* Le steeper motor doit être clipsé sur la base.
+* Le stepper motor doit être clipsé sur la base.
 * Pour la partie mobile, le plus simple est d'imprimer en 3d le fichier ring.stl et la façade [conçus par Pietrogramma, présents sur ce lien](https://www.thingiverse.com/thing:2297653)
 
 ## Electronique
